@@ -1,0 +1,207 @@
+function leighzermods.utils.createTintFromRGB(r,g,b) -- plug in rgb 0-255 values
+  
+  if r < 0 or r > 255 then
+    r = 0
+  end
+
+  if g < 0 or g > 255 then
+    g = 0
+  end
+
+  if b < 0 or b > 255 then
+    b = 0
+  end
+  
+  return {r=r/255,g=g/255,b=b/255}
+end
+
+if not leighzermods.tints then
+  leighzermods.tints = {}
+  --these are all the colors supported in html
+  --extracted colors from https://www.rapidtables.com/web/color/RGB_Color.html  
+  leighzermods.tints.maroon = leighzermods.utils.createTintFromRGB(128,0,0)
+  leighzermods.tints.dark_red = leighzermods.utils.createTintFromRGB(139,0,0)
+  leighzermods.tints.brown = leighzermods.utils.createTintFromRGB(165,42,42)
+  leighzermods.tints.fire_brick = leighzermods.utils.createTintFromRGB(178,34,34)
+  leighzermods.tints.crimson = leighzermods.utils.createTintFromRGB(220,20,60)
+  leighzermods.tints.red = leighzermods.utils.createTintFromRGB(255,0,0)
+  leighzermods.tints.tomato = leighzermods.utils.createTintFromRGB(255,99,71)
+  leighzermods.tints.coral = leighzermods.utils.createTintFromRGB(255,127,80)
+  leighzermods.tints.indian_red = leighzermods.utils.createTintFromRGB(205,92,92)
+  leighzermods.tints.light_coral = leighzermods.utils.createTintFromRGB(240,128,128)
+  leighzermods.tints.dark_salmon = leighzermods.utils.createTintFromRGB(233,150,122)
+  leighzermods.tints.salmon = leighzermods.utils.createTintFromRGB(250,128,114)
+  leighzermods.tints.light_salmon = leighzermods.utils.createTintFromRGB(255,160,122)
+  leighzermods.tints.orange_red = leighzermods.utils.createTintFromRGB(255,69,0)
+  leighzermods.tints.dark_orange = leighzermods.utils.createTintFromRGB(255,140,0)
+  leighzermods.tints.orange = leighzermods.utils.createTintFromRGB(255,165,0)
+  leighzermods.tints.gold = leighzermods.utils.createTintFromRGB(255,215,0)
+  leighzermods.tints.dark_golden_rod = leighzermods.utils.createTintFromRGB(184,134,11)
+  leighzermods.tints.golden_rod = leighzermods.utils.createTintFromRGB(218,165,32)
+  leighzermods.tints.pale_golden_rod = leighzermods.utils.createTintFromRGB(238,232,170)
+  leighzermods.tints.dark_khaki = leighzermods.utils.createTintFromRGB(189,183,107)
+  leighzermods.tints.khaki = leighzermods.utils.createTintFromRGB(240,230,140)
+  leighzermods.tints.olive = leighzermods.utils.createTintFromRGB(128,128,0)
+  leighzermods.tints.yellow = leighzermods.utils.createTintFromRGB(255,255,0)
+  leighzermods.tints.yellow_green = leighzermods.utils.createTintFromRGB(154,205,50)
+  leighzermods.tints.dark_olive_green = leighzermods.utils.createTintFromRGB(85,107,47)
+  leighzermods.tints.olive_drab = leighzermods.utils.createTintFromRGB(107,142,35)
+  leighzermods.tints.lawn_green = leighzermods.utils.createTintFromRGB(124,252,0)
+  leighzermods.tints.chartreuse = leighzermods.utils.createTintFromRGB(127,255,0)
+  leighzermods.tints.green_yellow = leighzermods.utils.createTintFromRGB(173,255,47)
+  leighzermods.tints.dark_green = leighzermods.utils.createTintFromRGB(0,100,0)
+  leighzermods.tints.green = leighzermods.utils.createTintFromRGB(0,128,0)
+  leighzermods.tints.forest_green = leighzermods.utils.createTintFromRGB(34,139,34)
+  leighzermods.tints.lime = leighzermods.utils.createTintFromRGB(0,255,0)
+  leighzermods.tints.lime_green = leighzermods.utils.createTintFromRGB(50,205,50)
+  leighzermods.tints.light_green = leighzermods.utils.createTintFromRGB(144,238,144)
+  leighzermods.tints.pale_green = leighzermods.utils.createTintFromRGB(152,251,152)
+  leighzermods.tints.dark_sea_green = leighzermods.utils.createTintFromRGB(143,188,143)
+  leighzermods.tints.medium_spring_green = leighzermods.utils.createTintFromRGB(0,250,154)
+  leighzermods.tints.spring_green = leighzermods.utils.createTintFromRGB(0,255,127)
+  leighzermods.tints.sea_green = leighzermods.utils.createTintFromRGB(46,139,87)
+  leighzermods.tints.medium_aqua_marine = leighzermods.utils.createTintFromRGB(102,205,170)
+  leighzermods.tints.medium_sea_green = leighzermods.utils.createTintFromRGB(60,179,113)
+  leighzermods.tints.light_sea_green = leighzermods.utils.createTintFromRGB(32,178,170)
+  leighzermods.tints.dark_slate_gray = leighzermods.utils.createTintFromRGB(47,79,79)
+  leighzermods.tints.teal = leighzermods.utils.createTintFromRGB(0,128,128)
+  leighzermods.tints.dark_cyan = leighzermods.utils.createTintFromRGB(0,139,139)
+  leighzermods.tints.aqua = leighzermods.utils.createTintFromRGB(0,255,255)
+  leighzermods.tints.cyan = leighzermods.utils.createTintFromRGB(0,255,255)
+  leighzermods.tints.light_cyan = leighzermods.utils.createTintFromRGB(224,255,255)
+  leighzermods.tints.dark_turquoise = leighzermods.utils.createTintFromRGB(0,206,209)
+  leighzermods.tints.turquoise = leighzermods.utils.createTintFromRGB(64,224,208)
+  leighzermods.tints.medium_turquoise = leighzermods.utils.createTintFromRGB(72,209,204)
+  leighzermods.tints.pale_turquoise = leighzermods.utils.createTintFromRGB(175,238,238)
+  leighzermods.tints.aqua_marine = leighzermods.utils.createTintFromRGB(127,255,212)
+  leighzermods.tints.powder_blue = leighzermods.utils.createTintFromRGB(176,224,230)
+  leighzermods.tints.cadet_blue = leighzermods.utils.createTintFromRGB(95,158,160)
+  leighzermods.tints.steel_blue = leighzermods.utils.createTintFromRGB(70,130,180)
+  leighzermods.tints.corn_flower_blue = leighzermods.utils.createTintFromRGB(100,149,237)
+  leighzermods.tints.deep_sky_blue = leighzermods.utils.createTintFromRGB(0,191,255)
+  leighzermods.tints.dodger_blue = leighzermods.utils.createTintFromRGB(30,144,255)
+  leighzermods.tints.light_blue = leighzermods.utils.createTintFromRGB(173,216,230)
+  leighzermods.tints.sky_blue = leighzermods.utils.createTintFromRGB(135,206,235)
+  leighzermods.tints.light_sky_blue = leighzermods.utils.createTintFromRGB(135,206,250)
+  leighzermods.tints.midnight_blue = leighzermods.utils.createTintFromRGB(25,25,112)
+  leighzermods.tints.navy = leighzermods.utils.createTintFromRGB(0,0,128)
+  leighzermods.tints.dark_blue = leighzermods.utils.createTintFromRGB(0,0,139)
+  leighzermods.tints.medium_blue = leighzermods.utils.createTintFromRGB(0,0,205)
+  leighzermods.tints.blue = leighzermods.utils.createTintFromRGB(0,0,255)
+  leighzermods.tints.royal_blue = leighzermods.utils.createTintFromRGB(65,105,225)
+  leighzermods.tints.blue_violet = leighzermods.utils.createTintFromRGB(138,43,226)
+  leighzermods.tints.indigo = leighzermods.utils.createTintFromRGB(75,0,130)
+  leighzermods.tints.dark_slate_blue = leighzermods.utils.createTintFromRGB(72,61,139)
+  leighzermods.tints.slate_blue = leighzermods.utils.createTintFromRGB(106,90,205)
+  leighzermods.tints.medium_slate_blue = leighzermods.utils.createTintFromRGB(123,104,238)
+  leighzermods.tints.medium_purple = leighzermods.utils.createTintFromRGB(147,112,219)
+  leighzermods.tints.dark_magenta = leighzermods.utils.createTintFromRGB(139,0,139)
+  leighzermods.tints.dark_violet = leighzermods.utils.createTintFromRGB(148,0,211)
+  leighzermods.tints.dark_orchid = leighzermods.utils.createTintFromRGB(153,50,204)
+  leighzermods.tints.medium_orchid = leighzermods.utils.createTintFromRGB(186,85,211)
+  leighzermods.tints.purple = leighzermods.utils.createTintFromRGB(128,0,128)
+  leighzermods.tints.thistle = leighzermods.utils.createTintFromRGB(216,191,216)
+  leighzermods.tints.plum = leighzermods.utils.createTintFromRGB(221,160,221)
+  leighzermods.tints.violet = leighzermods.utils.createTintFromRGB(238,130,238)
+  leighzermods.tints.magenta = leighzermods.utils.createTintFromRGB(255,0,255)
+  leighzermods.tints.orchid = leighzermods.utils.createTintFromRGB(218,112,214)
+  leighzermods.tints.medium_violet_red = leighzermods.utils.createTintFromRGB(199,21,133)
+  leighzermods.tints.pale_violet_red = leighzermods.utils.createTintFromRGB(219,112,147)
+  leighzermods.tints.deep_pink = leighzermods.utils.createTintFromRGB(255,20,147)
+  leighzermods.tints.hot_pink = leighzermods.utils.createTintFromRGB(255,105,180)
+  leighzermods.tints.light_pink = leighzermods.utils.createTintFromRGB(255,182,193)
+  leighzermods.tints.pink = leighzermods.utils.createTintFromRGB(255,192,203)
+  leighzermods.tints.antique_white = leighzermods.utils.createTintFromRGB(250,235,215)
+  leighzermods.tints.beige = leighzermods.utils.createTintFromRGB(245,245,220)
+  leighzermods.tints.bisque = leighzermods.utils.createTintFromRGB(255,228,196)
+  leighzermods.tints.blanched_almond = leighzermods.utils.createTintFromRGB(255,235,205)
+  leighzermods.tints.wheat = leighzermods.utils.createTintFromRGB(245,222,179)
+  leighzermods.tints.corn_silk = leighzermods.utils.createTintFromRGB(255,248,220)
+  leighzermods.tints.lemon_chiffon = leighzermods.utils.createTintFromRGB(255,250,205)
+  leighzermods.tints.light_golden_rod_yellow = leighzermods.utils.createTintFromRGB(250,250,210)
+  leighzermods.tints.light_yellow = leighzermods.utils.createTintFromRGB(255,255,224)
+  leighzermods.tints.saddle_brown = leighzermods.utils.createTintFromRGB(139,69,19)
+  leighzermods.tints.sienna = leighzermods.utils.createTintFromRGB(160,82,45)
+  leighzermods.tints.chocolate = leighzermods.utils.createTintFromRGB(210,105,30)
+  leighzermods.tints.peru = leighzermods.utils.createTintFromRGB(205,133,63)
+  leighzermods.tints.sandy_brown = leighzermods.utils.createTintFromRGB(244,164,96)
+  leighzermods.tints.burly_wood = leighzermods.utils.createTintFromRGB(222,184,135)
+  leighzermods.tints.tan = leighzermods.utils.createTintFromRGB(210,180,140)
+  leighzermods.tints.rosy_brown = leighzermods.utils.createTintFromRGB(188,143,143)
+  leighzermods.tints.moccasin = leighzermods.utils.createTintFromRGB(255,228,181)
+  leighzermods.tints.navajo_white = leighzermods.utils.createTintFromRGB(255,222,173)
+  leighzermods.tints.peach_puff = leighzermods.utils.createTintFromRGB(255,218,185)
+  leighzermods.tints.misty_rose = leighzermods.utils.createTintFromRGB(255,228,225)
+  leighzermods.tints.lavender_blush = leighzermods.utils.createTintFromRGB(255,240,245)
+  leighzermods.tints.linen = leighzermods.utils.createTintFromRGB(250,240,230)
+  leighzermods.tints.old_lace = leighzermods.utils.createTintFromRGB(253,245,230)
+  leighzermods.tints.papayawhip = leighzermods.utils.createTintFromRGB(255,239,213)
+  leighzermods.tints.seashell = leighzermods.utils.createTintFromRGB(255,245,238)
+  leighzermods.tints.mint_cream = leighzermods.utils.createTintFromRGB(245,255,250)
+  leighzermods.tints.slate_gray = leighzermods.utils.createTintFromRGB(112,128,144)
+  leighzermods.tints.light_slate_gray = leighzermods.utils.createTintFromRGB(119,136,153)
+  leighzermods.tints.light_steel_blue = leighzermods.utils.createTintFromRGB(176,196,222)
+  leighzermods.tints.lavender = leighzermods.utils.createTintFromRGB(230,230,250)
+  leighzermods.tints.floral_white = leighzermods.utils.createTintFromRGB(255,250,240)
+  leighzermods.tints.alice_blue = leighzermods.utils.createTintFromRGB(240,248,255)
+  leighzermods.tints.ghost_white = leighzermods.utils.createTintFromRGB(248,248,255)
+  leighzermods.tints.honey_dew = leighzermods.utils.createTintFromRGB(240,255,240)
+  leighzermods.tints.ivory = leighzermods.utils.createTintFromRGB(255,255,240)
+  leighzermods.tints.azure = leighzermods.utils.createTintFromRGB(240,255,255)
+  leighzermods.tints.snow = leighzermods.utils.createTintFromRGB(255,250,250)
+  leighzermods.tints.black = leighzermods.utils.createTintFromRGB(0,0,0)
+  leighzermods.tints.dim_gray = leighzermods.utils.createTintFromRGB(105,105,105)
+  leighzermods.tints.gray = leighzermods.utils.createTintFromRGB(128,128,128)
+  leighzermods.tints.dark_gray = leighzermods.utils.createTintFromRGB(169,169,169)
+  leighzermods.tints.silver = leighzermods.utils.createTintFromRGB(192,192,192)
+  leighzermods.tints.light_gray = leighzermods.utils.createTintFromRGB(211,211,211)
+  leighzermods.tints.gainsboro = leighzermods.utils.createTintFromRGB(220,220,220)
+  leighzermods.tints.white_smoke = leighzermods.utils.createTintFromRGB(245,245,245)
+  leighzermods.tints.white = leighzermods.utils.createTintFromRGB(255,255,255)
+
+  --tints I like using for factoricons
+  leighzermods.leighzerfactoricons.tints = {}
+  leighzermods.leighzerfactoricons.tints.white = {r=1, g=1, b=1}
+  leighzermods.leighzerfactoricons.tints.red = {r=219/255, g=50/255, b=50/255}
+  leighzermods.leighzerfactoricons.tints.green = {r=149/255, g=206/255, b=129/255}
+  leighzermods.leighzerfactoricons.tints.blue = {r=97/255, g=216/255, b=234/255}
+  leighzermods.leighzerfactoricons.tints.orange = {r=1,g=165/255,b=0}
+  leighzermods.leighzerfactoricons.tints.purple = {r=162/255, g=36/255, b=212/255, a = 1}
+  leighzermods.leighzerfactoricons.tints.gold = {r=208/255, g=177/255, b=20/255, a = 1}
+  leighzermods.leighzerfactoricons.tints.tan = {r=210/255,g=180/255,b=140/255}
+  leighzermods.leighzerfactoricons.tints.pink = {r=1,g=0.1,b=1, a=1}
+  leighzermods.leighzerfactoricons.tints.grey = {r=135/255, g=146/255, b=155/255}
+  
+  --tints from factorio cheat sheet
+  --probably won't use these, but can't hurt to have them
+  leighzermods.factorioCheetSheetTints = {}
+  leighzermods.factorioCheetSheetTints.iron_blue = leighzermods.utils.createTintFromRGB(0,140,255)
+  leighzermods.factorioCheetSheetTints.copper_red = leighzermods.utils.createTintFromRGB(255,55,0)
+  leighzermods.factorioCheetSheetTints.coal_black = leighzermods.utils.createTintFromRGB(0,0,0)
+  leighzermods.factorioCheetSheetTints.stone_tan = leighzermods.utils.createTintFromRGB(150,100,80)
+  leighzermods.factorioCheetSheetTints.uranium_green = leighzermods.utils.createTintFromRGB(100,180,0)
+  leighzermods.factorioCheetSheetTints.iron_plate_grey = leighzermods.utils.createTintFromRGB(210,210,255)
+  leighzermods.factorioCheetSheetTints.copper_plate_red = leighzermods.utils.createTintFromRGB(255,125,85)
+  leighzermods.factorioCheetSheetTints.steel_grey = leighzermods.utils.createTintFromRGB(200,200,200)
+  leighzermods.factorioCheetSheetTints.gear_grey = leighzermods.utils.createTintFromRGB(150,150,150)
+  leighzermods.factorioCheetSheetTints.uranium238_green = leighzermods.utils.createTintFromRGB(40,100,50)
+  leighzermods.factorioCheetSheetTints.electronic_chip_green = leighzermods.utils.createTintFromRGB(0,255,0)
+  leighzermods.factorioCheetSheetTints.advanced_electronic_chip_red = leighzermods.utils.createTintFromRGB(255,0,0)
+  leighzermods.factorioCheetSheetTints.processing_unit_blue = leighzermods.utils.createTintFromRGB(0,0,255)
+  leighzermods.factorioCheetSheetTints.oil_black = leighzermods.utils.createTintFromRGB(0,0,30)
+  leighzermods.factorioCheetSheetTints.lubricant_green = leighzermods.utils.createTintFromRGB(0,170,0)
+  leighzermods.factorioCheetSheetTints.sulfuric_acid_yellow = leighzermods.utils.createTintFromRGB(255,255,0)
+  leighzermods.factorioCheetSheetTints.plastic_white = leighzermods.utils.createTintFromRGB(255,255,255)
+  leighzermods.factorioCheetSheetTints.explosive_brown = leighzermods.utils.createTintFromRGB(165,60,15)
+  leighzermods.factorioCheetSheetTints.automation_science_red = leighzermods.utils.createTintFromRGB(255,50,50)
+  leighzermods.factorioCheetSheetTints.logistic_science_green = leighzermods.utils.createTintFromRGB(100,255,100)
+  leighzermods.factorioCheetSheetTints.chemical_science_blue = leighzermods.utils.createTintFromRGB(80,180,255)
+  leighzermods.factorioCheetSheetTints.military_science_grey = leighzermods.utils.createTintFromRGB(200,200,255)
+  leighzermods.factorioCheetSheetTints.production_science_purple = leighzermods.utils.createTintFromRGB(255,80,255)
+  leighzermods.factorioCheetSheetTints.utility_science_yellow = leighzermods.utils.createTintFromRGB(255,180,80)
+  leighzermods.factorioCheetSheetTints.space_science_white = leighzermods.utils.createTintFromRGB(200,200,255)
+  leighzermods.factorioCheetSheetTints.solar_panel_blue = leighzermods.utils.createTintFromRGB(0,100,150)
+  leighzermods.factorioCheetSheetTints.rocket_supply_magenta = leighzermods.utils.createTintFromRGB(255,0,100)
+  leighzermods.factorioCheetSheetTints.pax_shuttle_magenta = leighzermods.utils.createTintFromRGB(255,0,255)
+end
+
