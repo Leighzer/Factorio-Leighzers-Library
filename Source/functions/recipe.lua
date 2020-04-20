@@ -1,3 +1,54 @@
+--simple recipe create function with one result
+function leighzermods.utils.createRecipe(recipeName,energyRequired,enabled,category,ingredients,result,resultCount,subgroup,order,isProductivityEnabled)
+    
+    local recipe = {
+                        type = "recipe",
+                        name = recipeName,
+                        energy_required = energyRequired,
+                        enabled = enabled,
+                        category = category,
+                        ingredients = ingredients,
+                        result = result,
+                        result_count = resultCount,
+                        subgroup = subgroup,
+                        order = order,
+                    }
+    data:extend({
+        recipe
+    })
+
+    if isProductivityEnabled then
+        table.insert(leighzermods.productivityEnabledRecipes,recipe.name)
+    end
+end
+
+-- for most cases leave mainProduct alone
+function leighzermods.utils.createRecipeComplex(recipeName,energyRequired,enabled,category,ingredients,icons,results,subgroup,order,mainProduct,isProductivityEnabled, localised_name)
+    
+    local recipe = {
+                        type = "recipe",
+                        name = recipeName,
+                        energy_required = energyRequired,
+                        enabled = enabled,
+                        category = category,
+                        ingredients = ingredients,
+                        icons = icons,
+                        results = results,            
+                        subgroup = subgroup,
+                        order = order,
+                        main_product = mainProduct,
+                        localised_name = localised_name
+                    }
+
+    data:extend({
+        recipe
+    })
+
+    if isProductivityEnabled then
+        table.insert(leighzermods.productivityEnabledRecipes,recipe.name)
+    end
+end
+
 function leighzermods.utils.disableRecipe(recipeName)
     local recipe = data.raw.recipe[recipeName]
     recipe.enabled = false
@@ -32,9 +83,133 @@ function leighzermods.utils.removeIngredientFromRecipe(recipeName,ingredientName
     end
 end
 
-function leighzermods.utils.swapIngredient(recipeName,oldIngredientName,newIngredient)
-    leighzermods.utils.removeIngredientFromRecipe(recipeName,oldIngredientName)
-    leighzermods.utils.addIngredientToRecipe(recipeName,newIngredient)
+-- replaces one ingredient with another
+function leighzermods.utils.replaceIngredientFromRecipe(recipeName,oldIngredientTable,newIngredientTable)    
+    local recipe = data.raw.recipe[recipeName]
+
+    local oldIngredientName = oldIngredientTable.name
+    local oldIngredientType = oldIngredientTable.type
+
+    local newIngredientName = newIngredientTable.name
+    local newIngredientType = newIngredientTable.type
+    
+    local newIng = nil
+    if recipe.ingredients then        
+        for k,v in pairs(recipe.ingredients) do
+            local typ = v.type or "item"
+            local nam = v.name or v[1]
+            if typ == newIngredientType and nam == newIngredientName then
+                newIng = v
+            end
+        end
+
+        if not newIng then            
+            for k,v in pairs(recipe.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientType and nam == oldIngredientName then
+                    if v.name then
+                        v.name = newIngredientName
+                    else
+                        v[1] = newIngredientName
+                    end
+                end
+            end
+        else
+            for k,v in pairs(recipe.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientType and nam == oldIngredientName then
+                    local amountToAdd = v.amount or v[2]
+                    if newIng.amount then
+                        newIng.amount = newIng.amount + amountToAdd
+                    else
+                        newIng[2] = newIng[2] + amountToAdd
+                    end
+                    table.remove(recipe.ingredients,k)            
+                end
+            end
+        end
+    end
+    newIng = nil
+
+    if recipe.normal and recipe.normal.ingredients then
+        for k,v in pairs(recipe.normal.ingredients) do
+            local typ = v.type or "item"
+            local nam = v.name or v[1]
+            if typ == newIngredientType and nam == newIngredientName then
+                newIng = v
+            end
+        end
+
+        if not newIng then            
+            for k,v in pairs(recipe.normal.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientType and nam == oldIngredientName then
+                    if v.name then
+                        v.name = newIngredientName
+                    else
+                        v[1] = newIngredientName
+                    end
+                end
+            end
+        else
+            for k,v in pairs(recipe.normal.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientType and nam == oldIngredientName then
+                    local amountToAdd = v.amount or v[2]
+                    if newIng.amount then
+                        newIng.amount = newIng.amount + amountToAdd
+                    else
+                        newIng[2] = newIng[2] + amountToAdd
+                    end
+                    table.remove(recipe.normal.ingredients,k)            
+                end
+            end
+        end
+    end
+    newIng = nil
+
+    if recipe.expensive and recipe.expensive.ingredients then
+        for k,v in pairs(recipe.expensive.ingredients) do
+            local typ = v.type or "item"
+            local nam = v.name or v[1]
+            if typ == newIngredientType and nam == newIngredientName then
+                newIng = v
+            end
+        end
+
+        if not newIng then            
+            for k,v in pairs(recipe.expensive.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientType and nam == oldIngredientName then
+                    if v.name then
+                        v.name = newIngredientName
+                    else
+                        v[1] = newIngredientName
+                    end
+                end
+            end
+        else
+            for k,v in pairs(recipe.expensive.ingredients) do
+                local typ = v.type or "item"
+                local nam = v.name or v[1]
+                if typ == oldIngredientName and nam == oldIngredientName then
+                    local amountToAdd = v.amount or v[2]
+                    if newIng.amount then
+                        newIng.amount = newIng.amount + amountToAdd
+                    else
+                        newIng[2] = newIng[2] + amountToAdd
+                    end
+                    table.remove(recipe.expensive.ingredients,k)            
+                end
+            end
+        end
+    end
+    
 end
 
 function leighzermods.utils.setRecipeCraftingCategory(recipeName,craftingCategoryName)

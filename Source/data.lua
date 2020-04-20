@@ -11,17 +11,25 @@ if not leighzermods.productivityEnabledRecipes then --list of recipe names that 
 end
 leighzermods.utils = {}
 
---populate leighzermods.tints, leighzermods.leighzerfactoricons.tints, leighzermods.factorioCheetSheetTints
+--populate leighzermods.tints, leighzermods.factorioCheetSheetTints
 require("tints")
 
 --populate leighzermods.utils with ALL THE FUNCTIONS/THINGS
-require("functions.create")
+require("functions.autoplace-control")
 require("functions.factoricon")
-require("functions.createfromgeneric")
+require("functions.fluid")
+require("functions.generic")
+require("functions.item-group-subgroup")
 require("functions.item")
+require("functions.map-gen-preset")
 require("functions.misc")
+require("functions.noise-layer")
 require("functions.recipe")
+require("functions.resource")
 require("functions.technology")
+
+-- require("testfromgeneric")
+--require("testrainbowore")
 
 --enable productivity effect on recipes in leighzermods.productivityEnabledRecipes
 for k, v in pairs(data.raw.module) do

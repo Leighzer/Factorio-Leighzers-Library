@@ -269,8 +269,8 @@ function leighzermods.utils.createOreFromGeneric(materialName, tintName, groundO
     ore.type = "resource"
     ore.name = baseName .. "-ore"
     ore.tint = leighzermods.tints[tintName]
-    ore.icons = {{icon="__leighzerlib__/graphics/icons/generic-ore.png",tint=ore.tint}}    
-    ore.icon_size = 64
+    ore.icons = {{icon="__leighzerlib__/graphics/icons/generic-ore.png",tint=ore.tint,icon_size=64}}    
+    --ore.icon_size = 64
     ore.order = resourcesMenuOrder
     ore.map_color = ore.tint
     ore.minable = {

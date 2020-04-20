@@ -157,20 +157,7 @@ if not leighzermods.tints then
   leighzermods.tints.light_gray = leighzermods.utils.createTintFromRGB(211,211,211)
   leighzermods.tints.gainsboro = leighzermods.utils.createTintFromRGB(220,220,220)
   leighzermods.tints.white_smoke = leighzermods.utils.createTintFromRGB(245,245,245)
-  leighzermods.tints.white = leighzermods.utils.createTintFromRGB(255,255,255)
-
-  --tints I like using for factoricons
-  leighzermods.leighzerfactoricons.tints = {}
-  leighzermods.leighzerfactoricons.tints.white = {r=1, g=1, b=1}
-  leighzermods.leighzerfactoricons.tints.red = {r=219/255, g=50/255, b=50/255}
-  leighzermods.leighzerfactoricons.tints.green = {r=149/255, g=206/255, b=129/255}
-  leighzermods.leighzerfactoricons.tints.blue = {r=97/255, g=216/255, b=234/255}
-  leighzermods.leighzerfactoricons.tints.orange = {r=1,g=165/255,b=0}
-  leighzermods.leighzerfactoricons.tints.purple = {r=162/255, g=36/255, b=212/255, a = 1}
-  leighzermods.leighzerfactoricons.tints.gold = {r=208/255, g=177/255, b=20/255, a = 1}
-  leighzermods.leighzerfactoricons.tints.tan = {r=210/255,g=180/255,b=140/255}
-  leighzermods.leighzerfactoricons.tints.pink = {r=1,g=0.1,b=1, a=1}
-  leighzermods.leighzerfactoricons.tints.grey = {r=135/255, g=146/255, b=155/255}
+  leighzermods.tints.white = leighzermods.utils.createTintFromRGB(255,255,255)  
   
   --tints from factorio cheat sheet
   --probably won't use these, but can't hurt to have them

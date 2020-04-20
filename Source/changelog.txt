@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+  Changes:
+    - Added rainbow ore graphics.
+    - Added/Renamed many function files to match what they manipulate.
+    - Moved existing functions to more appropriate files.
+    - Moved factoricon tints to functions.factoricon file.
+    - Added replaceIngredientFromRecipe function.
+    - Added iconSize param to createItemGroup.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
   Changes:
     - Initial release.

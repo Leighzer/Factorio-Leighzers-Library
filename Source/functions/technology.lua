@@ -1,3 +1,20 @@
+function leighzermods.utils.createTechnology(techName,icons,enabled,effects,unit,prereqs,order, localised_name, localised_description)
+    data:extend({
+        {
+            type = "technology",
+            name = techName,
+            icons = icons,
+            enabled = enabled,
+            effects = effects,
+            unit = unit,
+            prerequisites = prereqs,
+            order = order,
+            localised_name = localised_name,
+            localised_description = localised_description,
+        }
+    })
+end
+
 function leighzermods.utils.disableTechnology(techName)
     local tech = data.raw.technology[techName]
     tech.enabled = false
