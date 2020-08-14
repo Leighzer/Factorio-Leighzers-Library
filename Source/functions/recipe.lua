@@ -72,8 +72,8 @@ end
 function leighzermods.utils.addIngredientToRecipe(recipeName,ingredient)
     local recipe = data.raw.recipe[recipeName]
     -- check if ingredient is already a part of the recipe
-    for _,ingredient in pairs(recipe.ingredients) do
-        if (ingredient.name and ingredient.name == ingredientName) or (ingredient[1] == ingredientName) then 
+    for _,ing in pairs(recipe.ingredients) do
+        if (ing.name and ing.name == ingredient.name) or (ing[1] == ingredient.name) then 
             return -- if so, do not add it
         end
     end
