@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+  Changes:
+    - Broke icons folder into sub folders and reorganized where icons reside.
+    - Split out generic fluid create functionality into own function.
+    - Update icon path references in functions.
+    - Rename testfromgeneric.lua to testgenerics.lua.
+    - Updated generic graphics to be brighter & have higher contrast. They actually look nice now :)
+---------------------------------------------------------------------------------------------------
 Version: 0.1.1
   Changes:
     - Added rainbow ore graphics.

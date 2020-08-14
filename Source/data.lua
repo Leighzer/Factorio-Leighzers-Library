@@ -24,11 +24,12 @@ require("functions.item")
 require("functions.map-gen-preset")
 require("functions.misc")
 require("functions.noise-layer")
+require("functions.oceanicprocessing")
 require("functions.recipe")
 require("functions.resource")
 require("functions.technology")
 
--- require("testfromgeneric")
+--require("testgenerics")
 --require("testrainbowore")
 
 --enable productivity effect on recipes in leighzermods.productivityEnabledRecipes

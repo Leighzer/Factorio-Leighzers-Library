@@ -1,7 +1,7 @@
 --functions to create new ores and items and fluids from generic gray scaled graphics provided in this library
 
 --list of supported generic types
-leighzermods.utils.supportedGenericTypes = {
+leighzermods.utils.supportedGenericItemTypes = {
     "bar",
     "brick",
     "cable",
@@ -9,8 +9,7 @@ leighzermods.utils.supportedGenericTypes = {
     "crystal",
     "cube",
     "electronic-circuit",
-    "fish",
-    "fluid",
+    "fish",    
     "gear-wheel",
     "ore",
     "plate",
@@ -23,12 +22,12 @@ leighzermods.utils.supportedGenericTypes = {
     "wood"    
 }
 
-function leighzermods.utils.createItemOrFluidFromGeneric(materialName, tintName, genericTypeName,subgroup,craftingMenuOrder,stack_size)
+function leighzermods.utils.createItemFromGeneric(materialName, tintName, genericTypeName,subgroup,craftingMenuOrder,stack_size)
     local baseName = materialName or tintName
 
     --make sure provided genericType is supported, otherwise make a fish
     local properGenericTypeName = false
-    for _,v in pairs(leighzermods.utils.supportedGenericTypes) do
+    for _,v in pairs(leighzermods.utils.supportedGenericItemTypes) do
       if genericTypeName == v then
         properGenericTypeName = true
         break
@@ -40,29 +39,20 @@ function leighzermods.utils.createItemOrFluidFromGeneric(materialName, tintName,
 
     local item = {}
     item.tint = leighzermods.tints[tintName]
-
-    if genericTypeName == "fluid" then
-      item.type = "fluid"
-      item.default_temperature = 25
-      item.heat_capacity = "0.1KJ"
-      item.base_color = item.tint
-      item.flow_color = leighzermods.tints.white
-      item.max_temperature = 100      
-    else
-      item.type = "item"
-    end
+    item.type = "item"
+    
     item.name = baseName .. "-" .. genericTypeName
     
-    item.icons = {{icon="__leighzerlib__/graphics/icons/generic-"..genericTypeName..".png",tint=item.tint,icon_size=64}}    
+    item.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-"..genericTypeName..".png",tint=item.tint,icon_size=64}}    
     item.icon_size = 64
     item.icon_mipmaps = 4
     
     if genericTypeName == "ore" then
         item.pictures = {
-            { size = 64, filename = "__leighzerlib__/graphics/icons/generic-ore.png",   scale = 0.25, mipmap_count = 4, tint = item.tint },
-            { size = 64, filename = "__leighzerlib__/graphics/icons/generic-ore-1.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
-            { size = 64, filename = "__leighzerlib__/graphics/icons/generic-ore-2.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
-            { size = 64, filename = "__leighzerlib__/graphics/icons/generic-ore-3.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
+            { size = 64, filename = "__leighzerlib__/graphics/icons/generic/generic-ore.png",   scale = 0.25, mipmap_count = 4, tint = item.tint },
+            { size = 64, filename = "__leighzerlib__/graphics/icons/generic/generic-ore-1.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
+            { size = 64, filename = "__leighzerlib__/graphics/icons/generic/generic-ore-2.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
+            { size = 64, filename = "__leighzerlib__/graphics/icons/generic/generic-ore-3.png", scale = 0.25, mipmap_count = 4, tint = item.tint },
           }
     end
     item.subgroup = subgroup    
@@ -73,6 +63,32 @@ function leighzermods.utils.createItemOrFluidFromGeneric(materialName, tintName,
     data:extend({        
         item
     })
+end
+
+function leighzermods.utils.createFluidFromGeneric(materialName,tintName,includeLiquidPrefix,subgroup,craftingMenuOrder)
+
+  local baseName = materialName or tintName
+
+  local fluid = {}
+  fluid.tint = leighzermods.tints[tintName]
+  fluid.type = "fluid"
+  fluid.name = baseName
+  fluid.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-liquid.png",tint=fluid.tint,icon_size=64}}    
+  if includeLiquidPrefix then
+    fluid.name = "liquid-"..fluid.name
+  end
+  fluid.default_temperature = 25
+  fluid.heat_capacity = "0.1KJ"
+  fluid.base_color = fluid.tint
+  fluid.flow_color = leighzermods.tints.white
+  fluid.max_temperature = 100    
+  fluid.subgroup = subgroup    
+  fluid.order = craftingMenuOrder
+  fluid.localised_name = leighzermods.utils.toNiceName(fluid.name)
+
+  data:extend({
+    fluid
+  })
 end
 
 function leighzermods.utils.createOreParticleFromGeneric(materialName, tintName)
@@ -269,7 +285,7 @@ function leighzermods.utils.createOreFromGeneric(materialName, tintName, groundO
     ore.type = "resource"
     ore.name = baseName .. "-ore"
     ore.tint = leighzermods.tints[tintName]
-    ore.icons = {{icon="__leighzerlib__/graphics/icons/generic-ore.png",tint=ore.tint,icon_size=64}}    
+    ore.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-ore.png",tint=ore.tint,icon_size=64}}    
     --ore.icon_size = 64
     ore.order = resourcesMenuOrder
     ore.map_color = ore.tint

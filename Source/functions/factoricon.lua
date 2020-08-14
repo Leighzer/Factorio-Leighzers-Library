@@ -15,7 +15,7 @@ function leighzermods.utils.createItemFromFactoricon(factoriconName,factoriconTi
         {
             type = "item",
             name = "factoricon-" .. partialName,
-            icons = {{icon = "__leighzerlib__/graphics/factoricons/"..factoriconName..".png", tint = tint,icon_size = 32}},            
+            icons = {{icon = "__leighzerlib__/graphics/icons/factoricons/"..factoriconName..".png", tint = tint,icon_size = 32}},            
             subgroup = subgroup,
             order = tostring(order),
             stack_size = 200,
