@@ -9,12 +9,13 @@ end
 if not leighzermods.productivityEnabledRecipes then --list of recipe names that are going to get productivity modules enabled
     leighzermods.productivityEnabledRecipes = {}
 end
+
+--populate leighzermods.constants
+leighzermods.constants = {}
+require("constants")
+
+--populate leighzermods.utils
 leighzermods.utils = {}
-
---populate leighzermods.tints, leighzermods.factorioCheetSheetTints
-require("tints")
-
---populate leighzermods.utils with ALL THE FUNCTIONS/THINGS
 require("functions.autoplace-control")
 require("functions.factoricon")
 require("functions.fluid")
@@ -28,20 +29,10 @@ require("functions.oceanicprocessing")
 require("functions.recipe")
 require("functions.resource")
 require("functions.technology")
+require("functions.total-raw")
+
+--populate leighzermods.tints, leighzermods.factorioCheetSheetTints
+require("tints")
 
 --require("testgenerics")
 --require("testrainbowore")
-
---enable productivity effect on recipes in leighzermods.productivityEnabledRecipes
-for k, v in pairs(data.raw.module) do
-    if v.name:find("productivity%-module") and v.limitation then
-    for _, recipe in ipairs(leighzermods.productivityEnabledRecipes) do
-        if data.raw["recipe"][recipe] then
-        table.insert(v.limitation, recipe)
-        end
-    end
-    end
-end
-
-
-

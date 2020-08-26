@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+  Changes:
+    - Added leighzermods.constants.
+    - Version bump to 1.0.
+    - Removed groundOrder param from leighzermods.utils.createOreFromGeneric.
+    - Productivity enabled recipes now enabled in data-final-fixes stage.
+    - Added leighzermods.utils.getTotalRawSum() and leighzermods.utils.getRawIngredientsTable() to get ROUGH total raw approximations.
+    - Small amount of code cleanup.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.3
   Bugfixes:
     - Fix for leighzermods.utils.addIngredientToRecipe.    

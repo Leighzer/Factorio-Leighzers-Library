@@ -278,7 +278,7 @@ function leighzermods.utils.createOreNoiseLayerFromGeneric(materialName, tintNam
   }) 
 end
 
-function leighzermods.utils.createOreFromGeneric(materialName, tintName, groundOrder, miningTime, autoplaceSettings, resourcesMenuOrder)
+function leighzermods.utils.createOreFromGeneric(materialName, tintName, miningTime, autoplaceSettings, resourcesMenuOrder)
     local baseName = materialName or tintName
   
     local ore = {} -- adding entity for ore in the ground

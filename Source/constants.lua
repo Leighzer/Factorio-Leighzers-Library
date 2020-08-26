@@ -1,0 +1,1 @@
+leighzermods.constants.maxIngredientAmount = 65535 -- max amount of a single ingredient allowed in a recipe
