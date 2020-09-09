@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+  Changes:
+    - Update to leighzermods.utils.getTotalRawSum to return double rather than round to nearest int.
+    - Add leighzermods.utils.getRecipesThatContainProduct
+    - Add leighzermods.utils.getRecipesThatOnlyContainProduct
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
   Changes:
     - Added leighzermods.constants.

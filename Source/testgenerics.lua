@@ -17,10 +17,10 @@ for tintName, tint in pairs(leighzermods.tints) do
         regular_rq_factor_multiplier = 1.1,
         starting_rq_factor_multiplier = 1.5,
     }
-    leighzermods.utils.createOreFromGeneric(materialName,tintName,5,autoplaceSettings,order)
-    leighzermods.utils.createOreAutoplaceFromGeneric(materialName,tintName,"z")
-    leighzermods.utils.createOreNoiseLayerFromGeneric(materialName,tintName)
-    leighzermods.utils.createOreParticleFromGeneric(materialName,tintName)
+    -- leighzermods.utils.createOreFromGeneric(materialName,tintName,5,autoplaceSettings,order)
+    -- leighzermods.utils.createOreAutoplaceFromGeneric(materialName,tintName,"z")
+    -- leighzermods.utils.createOreNoiseLayerFromGeneric(materialName,tintName)
+    -- leighzermods.utils.createOreParticleFromGeneric(materialName,tintName)
     
     leighzermods.utils.createItemSubgroup(tintName,"intermediate-products", order)
 

@@ -243,3 +243,73 @@ function leighzermods.utils.setRecipeToCraftingWithFluidCategoryIfHasFluidIngred
         break
     end
 end
+
+-- returns a table not array
+function leighzermods.utils.getRecipesThatContainProduct(productName, useExpensive)
+
+    local recipeDict = {}
+
+    for k,recipe in pairs(data.raw.recipe) do
+        local rec = {}
+
+        if (not recipe.normal) and (not recipe.expensive) then
+            rec = recipe
+        else
+            if useExpensive and recipe.expensive then
+                rec = recipe.expensive
+            elseif recipe.normal then
+                rec = recipe.normal
+            end
+        end
+
+        if rec.results then
+            for i,res in ipairs(rec.results) do
+                local resultName = res.name or res[1]
+                if(resultName == productName) then
+                    recipeDict[k] = recipe
+                    break
+                end
+            end
+        elseif rec.result and rec.result == productName then
+            recipeDict[k] = recipe
+        end
+
+    end
+
+    return recipeDict
+end
+
+-- returns a table not array
+function leighzermods.utils.getRecipesThatOnlyContainProduct(productName, useExpensive)
+
+    local recipeDict = {}
+
+    for k,recipe in pairs(data.raw.recipe) do
+        local rec = {}
+
+        if (not recipe.normal) and (not recipe.expensive) then
+            rec = recipe
+        else
+            if useExpensive and recipe.expensive then
+                rec = recipe.expensive
+            elseif recipe.normal then
+                rec = recipe.normal
+            end
+        end
+
+        if rec.results and (#rec.results == 1) then
+            for i,res in ipairs(rec.results) do
+                local resultName = res.name or res[1]
+                if(resultName == productName) then
+                    recipeDict[k] = recipe
+                    break
+                end
+            end
+        elseif rec.result and rec.result == productName then
+            recipeDict[k] = recipe
+        end
+        
+    end
+
+    return recipeDict
+end

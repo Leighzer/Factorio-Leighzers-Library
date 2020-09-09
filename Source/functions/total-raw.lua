@@ -212,5 +212,5 @@ function leighzermods.utils.getTotalRawSum(recipe, useExpensive)
 		totalRawSum = totalRawSum + amountToAdd
 	end
 
-	return math.ceil(totalRawSum)
+	return totalRawSum
 end

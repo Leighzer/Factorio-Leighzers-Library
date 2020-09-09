@@ -6,7 +6,7 @@ if not leighzermods.leighzerfactoricons then
     leighzermods.leighzerfactoricons = {}
 end
 
-if not leighzermods.productivityEnabledRecipes then --list of recipe names that are going to get productivity modules enabled
+if not leighzermods.productivityEnabledRecipes then --list of recipe names that are going to get productivity modules enabled in data-final-fixes.lua
     leighzermods.productivityEnabledRecipes = {}
 end
 
