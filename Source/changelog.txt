@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.2
+  Bugfixes:
+    - Fix for leighzermods.utils.replaceIngredientFromRecipe not working correctly for expensive versions of recipes.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.1
   Changes:
     - Update to leighzermods.utils.getTotalRawSum to return double rather than round to nearest int.

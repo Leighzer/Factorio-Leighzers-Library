@@ -203,7 +203,7 @@ function leighzermods.utils.replaceIngredientFromRecipe(recipeName,oldIngredient
             for k,v in pairs(recipe.expensive.ingredients) do
                 local typ = v.type or "item"
                 local nam = v.name or v[1]
-                if typ == oldIngredientName and nam == oldIngredientName then
+                if typ == oldIngredientType and nam == oldIngredientName then
                     local amountToAdd = v.amount or v[2]
                     if newIng.amount then
                         newIng.amount = newIng.amount + amountToAdd

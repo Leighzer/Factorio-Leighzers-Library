@@ -34,5 +34,5 @@ require("functions.total-raw")
 --populate leighzermods.tints, leighzermods.factorioCheetSheetTints
 require("tints")
 
---require("testgenerics")
---require("testrainbowore")
+-- require("testgenerics")
+-- require("testrainbowore")
