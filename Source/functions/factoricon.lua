@@ -1,4 +1,4 @@
---functions and data used to create factoricon items - might add liquids PROBABLY NOT
+--functions and data used to create factoricon items
 
 local itemOrder = 10000
 function leighzermods.utils.createItemFromFactoricon(factoriconName,factoriconTintName,subgroup,order)

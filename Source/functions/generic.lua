@@ -1,5 +1,7 @@
 --functions to create new ores and items and fluids from generic gray scaled graphics provided in this library
 
+local resource_autoplace = require("resource-autoplace")
+
 --list of supported generic types
 leighzermods.utils.supportedGenericItemTypes = {
     "bar",
@@ -11,6 +13,7 @@ leighzermods.utils.supportedGenericItemTypes = {
     "electronic-circuit",
     "fish",    
     "gear-wheel",
+    "nugget",
     "ore",
     "plate",
     "rocket-part",
@@ -46,6 +49,19 @@ function leighzermods.utils.createItemFromGeneric(materialName, tintName, generi
     item.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-"..genericTypeName..".png",tint=item.tint,icon_size=64}}    
     item.icon_size = 64
     item.icon_mipmaps = 4
+
+    -- for certain items, add top layer img to make them look bit better
+    if genericTypeName == "electronic-circuit" then
+      table.insert(item.icons, {icon="__leighzerlib__/graphics/icons/generic/circuit-traces.png",icon_size=64})
+    elseif genericTypeName == "rocket-part" then
+      table.insert(item.icons, {icon="__leighzerlib__/graphics/icons/generic/rocket-part-flairs.png",icon_size=64})
+    elseif genericTypeName == "science-pack" then
+      table.insert(item.icons, {icon="__leighzerlib__/graphics/icons/generic/science-pack-flask.png",icon_size=64})
+    elseif genericTypeName == "fish" then
+      table.insert(item.icons, {icon="__leighzerlib__/graphics/icons/generic/fish-stripes.png",icon_size=64})    
+    elseif genericTypeName == "crystal" then
+      table.insert(item.icons, {icon="__leighzerlib__/graphics/icons/generic/crystal-highlights.png",icon_size=64})    
+    end
     
     if genericTypeName == "ore" then
         item.pictures = {
@@ -80,7 +96,7 @@ function leighzermods.utils.createFluidFromGeneric(materialName,tintName,include
   fluid.default_temperature = 25
   fluid.heat_capacity = "0.1KJ"
   fluid.base_color = fluid.tint
-  fluid.flow_color = leighzermods.tints.white
+  fluid.flow_color = fluid.tint
   fluid.max_temperature = 100    
   fluid.subgroup = subgroup    
   fluid.order = craftingMenuOrder

@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+  Changes:
+    - Version bump for 1.1.
+    - Pre-release of library for initial release of Leighzer's Uranium Innovations (haven't officially done an update pass on this lib for 1.1 yet, but want to get initial Innovations version out).
+    - Added top icon layer for select generic items to improve contrast and have them look much more similar to the items they are based on.
+    - Added generic nugget item.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.2
   Bugfixes:
     - Fix for leighzermods.utils.replaceIngredientFromRecipe not working correctly for expensive versions of recipes.
