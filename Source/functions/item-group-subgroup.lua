@@ -1,12 +1,11 @@
-function leighzermods.utils.createItemGroup(itemGroupName,craftingTabOrder,inventoryOrder,iconPath, iconSize, localised_name)
+function leighzermods.utils.createItemGroup(itemGroupName,craftingTabOrder,inventoryOrder, icons, localised_name)
     data:extend({
         {
             type = "item-group",
             name = itemGroupName,
             order = craftingTabOrder,
             inventory_order = inventoryOrder,
-            icon = iconPath,
-            icon_size = iconSize,
+            icons = icons,
             localised_name = localised_name,
           }
     })

@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+  Changes:
+    - Support for assigning factoricons to separate tabs.
+    - Update to leighzermods.utils.createItemGroup to take an icons table instead of individual icon fields.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
   Changes:
     - Version bump for 1.1.

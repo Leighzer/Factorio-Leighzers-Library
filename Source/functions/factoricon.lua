@@ -16,7 +16,7 @@ function leighzermods.utils.createItemFromFactoricon(factoriconName,factoriconTi
             type = "item",
             name = "factoricon-" .. partialName,
             icons = {{icon = "__leighzerlib__/graphics/icons/factoricons/"..factoriconName..".png", tint = tint,icon_size = 32}},            
-            subgroup = subgroup,
+            subgroup = subgroup .."-" .. factoriconTintName,
             order = tostring(order),
             stack_size = 200,
             localised_name = localised_name
@@ -44,7 +44,7 @@ function leighzermods.utils.createRecipeFromFactoricon(factoriconName,factoricon
         ingredients = ingredients,
         result = name,
         result_count = resultCount,
-        subgroup = subgroup,
+        subgroup = subgroup .."-".. factoriconTintName,
         order = tostring(order),    
             }
 
