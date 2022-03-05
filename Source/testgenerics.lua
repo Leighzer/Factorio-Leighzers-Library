@@ -29,7 +29,14 @@ for tintName, tint in pairs(leighzermods.tints) do
         leighzermods.utils.createItemFromGeneric(materialName,tintName,v,tintName,"a",100)
         --leighzermods.utils.createRecipe()
     end
-
+    
+    if tintName == "white" then
+        for _,v in pairs(leighzermods.leighzerfactoricons.factoriconNames) do        
+            leighzermods.utils.createItemFromGeneric(materialName,tintName,v,tintName,"b",100)
+            --leighzermods.utils.createRecipe()
+        end
+    end
+    
     --the fluid as well
     leighzermods.utils.createFluidFromGeneric(materialName,tintName,true,tintName,order)
 

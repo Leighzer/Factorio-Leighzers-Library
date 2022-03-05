@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.2
+  Changes:
+    - Add ability to create factoricons using the createItemFromGeneric function.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.1
   Changes:
     - Support for assigning factoricons to separate tabs.

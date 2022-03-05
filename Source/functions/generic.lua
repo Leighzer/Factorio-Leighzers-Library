@@ -7,6 +7,7 @@ leighzermods.utils.supportedGenericItemTypes = {
     "bar",
     "brick",
     "cable",
+    "coconut",
     "coin",
     "crystal",
     "cube",
@@ -30,10 +31,20 @@ function leighzermods.utils.createItemFromGeneric(materialName, tintName, generi
 
     --make sure provided genericType is supported, otherwise make a fish
     local properGenericTypeName = false
+    local isFactoricon = false
     for _,v in pairs(leighzermods.utils.supportedGenericItemTypes) do
       if genericTypeName == v then
         properGenericTypeName = true
         break
+      end
+    end
+    if not properGenericTypeName then
+      for _,v in pairs(leighzermods.leighzerfactoricons.factoriconNames) do
+        if genericTypeName == v then
+          properGenericTypeName = true
+          isFactoricon = true
+          break
+        end
       end
     end
     if not properGenericTypeName then
@@ -46,8 +57,11 @@ function leighzermods.utils.createItemFromGeneric(materialName, tintName, generi
     
     item.name = baseName .. "-" .. genericTypeName
     
-    item.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-"..genericTypeName..".png",tint=item.tint,icon_size=64}}    
-    item.icon_size = 64
+    if isFactoricon then
+      item.icons = {{icon="__leighzerlib__/graphics/icons/factoricons/"..genericTypeName..".png",tint=item.tint,icon_size=32}}    
+    else 
+      item.icons = {{icon="__leighzerlib__/graphics/icons/generic/generic-"..genericTypeName..".png",tint=item.tint,icon_size=64}}    
+    end
     item.icon_mipmaps = 4
 
     -- for certain items, add top layer img to make them look bit better
